@@ -1,0 +1,31 @@
+type Query {
+
+    allCars(
+        page: Int,
+        size: Int,
+        filter: [FilterParameter],
+        sort: [SortParameter]
+    ): [Car]!
+}
+
+type Car {
+    id: ID
+    name: String
+    value: Int
+    builtAt: LocalDateTime
+    type: CarType
+    oldTimer: Boolean
+    owners: [Owner]
+}
+
+type Owner {
+    id: ID
+    firstName: String
+    lastName: String
+}
+
+enum CarType {
+    SPORTS
+    VAN
+    CABRIO
+}
