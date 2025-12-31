@@ -2,7 +2,7 @@ package de.stonedrum.demo.model
 
 import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
-import java.time.LocalDateTime
+import java.time.LocalDate
 
 @Entity
 @Table(schema = "demo")
@@ -17,7 +17,7 @@ class Car(
     var value: Int,
 
     @Column
-    var builtAt: LocalDateTime = LocalDateTime.now(),
+    var builtAt: LocalDate,
 
     @Column
     @Enumerated(EnumType.STRING)

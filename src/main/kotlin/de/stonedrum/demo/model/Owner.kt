@@ -12,7 +12,7 @@ class Owner(
     var id: String,
 
     @Column
-    var fistName: String,
+    var firstName: String,
 
     @Column
     var lastName: String

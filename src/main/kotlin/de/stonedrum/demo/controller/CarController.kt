@@ -15,8 +15,8 @@ import org.springframework.stereotype.Controller
 class CarController(
     private val carService: CarService
 ) {
-    @SchemaMapping(typeName = "Query", field = "allDatasets")
-    fun allDatasets(
+    @SchemaMapping(typeName = "Query", field = "allCars")
+    fun allCars(
         @Argument page: Int,
         @Argument size: Int,
         @Argument filter: List<FilterParameter>?,

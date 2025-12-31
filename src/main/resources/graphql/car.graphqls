@@ -12,9 +12,9 @@ type Car {
     id: ID
     name: String
     value: Int
-    builtAt: LocalDateTime
+    builtAt: LocalDate
     type: CarType
-    oldTimer: Boolean
+    oldtimer: Boolean
     owners: [Owner]
 }
 
@@ -26,6 +26,5 @@ type Owner {
 
 enum CarType {
     SPORTS
-    VAN
-    CABRIO
+    CABRIOLET
 }
