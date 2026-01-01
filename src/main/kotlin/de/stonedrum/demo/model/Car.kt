@@ -4,7 +4,6 @@ import jakarta.persistence.*
 import java.time.LocalDate
 
 @Entity
-@Table(schema = "demo")
 class Car(
     @Id
     var id: String,
@@ -26,6 +25,5 @@ class Car(
     val oldtimer: Boolean = false,
 
     @ManyToMany(cascade = [], fetch = FetchType.LAZY)
-    @CollectionTable(schema = "demo")
     var owners: MutableSet<Owner> = mutableSetOf()
     )

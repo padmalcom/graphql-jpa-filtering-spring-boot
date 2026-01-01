@@ -6,7 +6,6 @@ import jakarta.persistence.Id
 import jakarta.persistence.Table
 
 @Entity
-@Table(schema = "demo")
 class Owner(
     @Id
     var id: String,
