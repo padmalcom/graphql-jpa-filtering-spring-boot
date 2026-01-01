@@ -1,8 +1,7 @@
 type Query {
-
     allCars(
-        page: Int,
-        size: Int,
+        page: Int!,
+        size: Int!,
         filter: [FilterParameter],
         sort: [SortParameter]
     ): [Car]!
@@ -10,18 +9,18 @@ type Query {
 
 type Car {
     id: ID
-    name: String
-    value: Int
-    builtAt: LocalDate
-    type: CarType
-    oldtimer: Boolean
-    owners: [Owner]
+    name: String!
+    value: Int!
+    builtAt: LocalDate!
+    type: CarType!
+    oldtimer: Boolean!
+    owners: [Owner]!
 }
 
 type Owner {
     id: ID
-    firstName: String
-    lastName: String
+    firstName: String!
+    lastName: String!
 }
 
 enum CarType {

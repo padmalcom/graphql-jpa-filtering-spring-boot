@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration debug="true">
+    <include
+            resource="org/springframework/boot/logging/logback/defaults.xml" />
+
+    <appender name="ACTUAL_LOG_FILE_APPENDER"
+              class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+        </encoder>
+        <file>${LOG_FILE}</file>
+        <rollingPolicy
+                class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <!-- gz extension to enable file deletion by logrotator  -->
+            <fileNamePattern>${LOG_FILE}.%i.gz</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>10</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy
+                class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <MaxFileSize>2MB</MaxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <springProfile name="default">
+        <include
+                resource="org/springframework/boot/logging/logback/console-appender.xml" />
+        <root level="ERROR">
+            <appender-ref ref="CONSOLE" />
+        </root>
+        <logger name="de.stonedrum.demo" level="DEBUG" />
+        <logger name="org.springframework" level="INFO" />
+    </springProfile>
+
+</configuration>

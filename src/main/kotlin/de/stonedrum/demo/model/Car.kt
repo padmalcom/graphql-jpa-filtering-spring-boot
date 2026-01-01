@@ -1,6 +1,5 @@
 package de.stonedrum.demo.model
 
-import com.fasterxml.jackson.annotation.JsonManagedReference
 import jakarta.persistence.*
 import java.time.LocalDate
 
@@ -26,8 +25,7 @@ class Car(
     @Column
     val oldtimer: Boolean = false,
 
-    @OneToMany(cascade = [(CascadeType.ALL)], fetch = FetchType.LAZY)
+    @ManyToMany(cascade = [], fetch = FetchType.LAZY)
     @CollectionTable(schema = "demo")
-    @JsonManagedReference
-    var owners: MutableList<Owner> = mutableListOf()
+    var owners: MutableSet<Owner> = mutableSetOf()
     )

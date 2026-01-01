@@ -35,10 +35,10 @@ class TestDataGenerator(
             lastName = "Monroe"
         )
 
+        logger.debug("Creating test owner {} and {}", owner1.id, owner2.id)
         ownerRepository.save(owner1)
         ownerRepository.save(owner2)
-        logger.debug("Created test owner {} and {}", owner1, owner2)
-        
+
         val car1 = Car(
             id = UUID.randomUUID().toString(),
             name = "Chevrolet Camaro",
@@ -46,9 +46,9 @@ class TestDataGenerator(
             builtAt = LocalDate.of(1060, 1, 1),
             type = CarType.SPORTS,
             oldtimer = true,
-            owners = mutableListOf(owner1, owner2)
+            owners = mutableSetOf(owner1, owner2)
         )
-        
+
         val car2 = Car(
             id = UUID.randomUUID().toString(),
             name = "Ford Thunderbird",
@@ -56,10 +56,10 @@ class TestDataGenerator(
             builtAt = LocalDate.of(1961, 1, 1),
             type = CarType.CABRIOLET,
             oldtimer = true,
-            owners = mutableListOf(owner2)
+            owners = mutableSetOf(owner2)
         )
         carRepository.save(car1)
         carRepository.save(car2)
-        logger.debug("Created test car {} and {}", car1, car2)
+        logger.debug("Created test car {} and {}", car1.id, car2.id)
     }
 }
